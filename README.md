@@ -7,11 +7,17 @@ The PINF PHP Loader combines what you would traditionally call a **package insta
 **class loader** and is **intended to be used as the core to all your PHP applications**.
 
 The loader allows for bootstrapping a state-of-the-art, consistent and portable modular environment
-for PHP with the ability to load third party PHP packages from PEAR and other communities following
-typical PHP class naming conventions.
+for PHP with the ability to load third party PHP packages from PEAR and other communities that follow
+[typical PHP class naming conventions](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md).
 
-The loader brings [CommonJS Packages/1.1 (draft)](http://wiki.commonjs.org/wiki/Packages/1.1), 
-[CommonJS Packages/Mappings/C (proposal)](http://wiki.commonjs.org/wiki/Packages/Mappings/C) and further concepts to the PHP platform.
+The loader brings [CommonJS Packages](http://wiki.commonjs.org/wiki/Packages),
+[CommonJS Package Mappings](http://wiki.commonjs.org/wiki/Packages/Mappings) and further concepts to the PHP platform.
+
+The loader implements or is compatible with the following specs:
+
+  * [CommonJS Packages/1.1 (draft)](http://wiki.commonjs.org/wiki/Packages/1.1)
+  * [CommonJS Packages/Mappings/C (proposal)](http://wiki.commonjs.org/wiki/Packages/Mappings/C)
+  * [PHP Framework Interop Group (FIG): Autoloader interoperability (PSR-0)](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md)
 
 For more information about the direction this loader is taking see the [JavaScript implementation](https://github.com/pinf/loader-js).
 
