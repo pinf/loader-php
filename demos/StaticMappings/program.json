@@ -1,0 +1,20 @@
+{
+    "boot": "github.com/pinf/loader-php/demos/StaticMappings/",
+    "packages": {
+        "github.com/pinf/loader-php/demos/StaticMappings/": {
+            "locator": {
+                "location": "./"
+            }
+        },
+        "github.com/pinf/loader-php/demos/StaticMappings/packages/lang-en/": {
+            "locator": {
+                "location": "./packages/lang-en"
+            }
+        },
+        "github.com/pinf/loader-php/demos/StaticMappings/packages/lang-de/": {
+            "locator": {
+                "location": "./packages/lang-de"
+            }
+        }
+    }
+}

@@ -1,0 +1,6 @@
+{
+    "mappings": {
+        "lang-1": "github.com/pinf/loader-php/demos/StaticMappings/packages/lang-en/",
+        "lang-2": "github.com/pinf/loader-php/demos/StaticMappings/packages/lang-de/"
+    }
+}
