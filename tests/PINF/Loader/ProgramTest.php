@@ -2,7 +2,7 @@
 
 class PINF_Loader_ProgramTest extends PHPUnit_Framework_TestCase
 {
-    public function testHelloWorldProgram()
+    public function testStaticMappingsProgram()
     {
 //ob_end_flush();        
     
