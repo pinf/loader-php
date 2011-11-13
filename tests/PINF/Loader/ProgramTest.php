@@ -4,7 +4,7 @@ class PINF_Loader_ProgramTest extends PHPUnit_Framework_TestCase
 {
     public function testHelloWorldProgram()
     {
-ob_end_flush();        
+//ob_end_flush();        
     
         $programPath = dirname(dirname(dirname(__DIR__))) . '/demos/StaticMappings';
 
@@ -12,6 +12,14 @@ ob_end_flush();
             'forceCompile' => true
         ));
 
+        ob_start();
+
         $program->boot();
+        
+        $this->assertEquals(implode("\n", array(
+            'Hello World',
+            'Hallo Welt',
+            ''
+        )), ob_get_clean());
     }     
 }
