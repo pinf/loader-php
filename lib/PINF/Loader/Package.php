@@ -104,7 +104,9 @@ class PINF_Loader_Package
                 $id = substr($moduleIdentifier, strlen($alias) + 1);
                 $moduleName = $m[2][$i];
                 
-                $package = $this->packageForAlias($alias);
+                $package = $this;
+                if ($alias !== ".")
+                    $package = $this->packageForAlias($alias);
             
                 $useStatement = "\n" . 'use \\' . $package->idHash . '\\' . $id . ' as ' . $moduleName . ';';
 
