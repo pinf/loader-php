@@ -36,7 +36,6 @@ Development
     cd ./tests
     
     phpunit PINF
-    phpunit demos
 
 
 TODO
