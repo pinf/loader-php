@@ -4,12 +4,12 @@ class PINF_Loader_ProgramTest extends PHPUnit_Framework_TestCase
 {
     public function testStaticMappingsProgram()
     {
-//ob_end_flush();        
-    
         $programPath = dirname(dirname(dirname(__DIR__))) . '/demos/StaticMappings';
 
         $program = new PINF_Loader_Program($programPath, array(
-            'forceCompile' => true
+            'forceCompile' => true,
+            'verbose' => true,
+            'debug' => true
         ));
 
         ob_start();
@@ -21,5 +21,31 @@ class PINF_Loader_ProgramTest extends PHPUnit_Framework_TestCase
             'Hallo Welt',
             ''
         )), ob_get_clean());
-    }     
+    }
+
+
+    public function testGithubPackageProgram()
+    {
+        $programPath = dirname(dirname(dirname(__DIR__))) . '/demos/GithubPackage';
+
+        $program = new PINF_Loader_Program($programPath, array(
+            'forceCompile' => true,
+            'verbose' => false,
+            'debug' => false
+        ));
+
+        ob_start();
+
+        $program->boot();
+
+        foreach (explode("\n", ob_get_clean()) as $line)
+        {
+            if ($line)
+            {
+                if (!preg_match_all('/^\[[^\]]*\] name.(WARNING|ERROR): (Warning|Error) Message \[\] \[\]$/', $line, $m))
+                    $this->fail("Line '$line' does not match pattern!");
+            }
+  
+        }
+    }
 }

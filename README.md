@@ -1,7 +1,7 @@
 PHP Module, Package & Program Loader
 ====================================
 
-*Status: DEV* - **WORK IN PROGRESS: YOU MAY GET FRUSTRATED TRYING THIS!**
+*Status: DEV - API will likely change somewhat.*
 
 The PINF PHP Loader combines what you would traditionally call a **package installer** and 
 **class loader** and is **intended to be used as the core to all your PHP applications**.
@@ -22,10 +22,13 @@ The loader implements or is compatible with the following specs:
 For more information about the direction this loader is taking see the [JavaScript implementation](https://github.com/pinf/loader-js).
 
 
-Install
-=======
+Requirements
+============
 
-TODO
+  * `php` - [PHP](http://php.net/) with extensions:
+    * `curl`
+    * `zip`
+    * `zlib`
 
 
 Development
@@ -44,7 +47,6 @@ TODO
 **Questions**
 
   * How do you tell PHPUnit to disable output buffering when running tests?
-
 
 
 Support, Feedback & News

@@ -11,9 +11,10 @@ class PINF_Loader_Program
 
     private $packages = array();
     
+    public $downloader = null;
     public $autoloader = null;
 
-    
+
     public function __construct($path, $options)
     {
         $this->descriptorPath = $path;
@@ -33,6 +34,7 @@ class PINF_Loader_Program
         if ($this->descriptor===null || !is_array($this->descriptor))
             throw new Exception('Program descriptor not a valid JSON file at path "' . $this->descriptorPath . '"!');
 
+        $this->downloader = new PINF_Loader_Downloader($options);
         $this->autoloader = PINF_Loader_Autoloader::init();
     }
 
@@ -41,9 +43,18 @@ class PINF_Loader_Program
         if (!isset($this->descriptor['boot']))
             throw new Exception('No "boot" property found in descriptor "' . $this->descriptorPath . '"!');
 
-        $package = $this->packageForID($this->descriptor['boot']);
-
-        require_once($package->compile($package->getMainModulePath()));
+        try
+        {
+            $package = $this->packageForID($this->descriptor['boot']);
+    
+            require_once($package->compile($package->getMainModulePath()));
+        }
+        catch(Exception $e)
+        {
+            if (isset($this->options["debug"]) && $this->options["debug"] === true)
+                echo "".$e;
+            throw $e;
+        }
     }
 
     public function packageForID($packageId)
@@ -61,13 +72,14 @@ class PINF_Loader_Program
             }
         }
         else
+        if (isset($locator['archive']))
+        {
+            $locator['location'] = $this->downloader->getLocationForArchive($locator['archive']);
+        }
+        else
             throw new Exception('Invalid package locator at "' . $this->descriptorPath . '" ~ packages["' . $packageId . '"].locator!');
 
-        $path = $locator['location'];
-
-        if (is_dir($path)) {
-            $path = realpath($path) . '/package.json';
-        }
+        $path = realpath($locator['location']);
 
         if (!$this->packages[$path]) {
             $this->packages[$path] = new PINF_Loader_Package($this, $packageId, $path, $this->options);

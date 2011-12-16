@@ -1,0 +1,20 @@
+{
+    "boot": "github.com/pinf/loader-php/demos/GithubPackage/",
+    "packages": {
+        "github.com/pinf/loader-php/demos/GithubPackage/": {
+            "locator": {
+                "location": "./"
+            }
+        },
+        "github.com/Seldaek/monolog/1": {
+            "locator": {
+                "archive": "https://github.com/Seldaek/monolog/zipball/1.0.1"
+            }
+        },
+        "github.com/Seldaek/monolog/2": {
+            "locator": {
+                "archive": "https://github.com/Seldaek/monolog/zipball/1.0.2"
+            }
+        }
+    }
+}

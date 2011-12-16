@@ -1,0 +1,7 @@
+{
+    "main": "main.php",
+    "mappings": {
+        "monolog1": "github.com/Seldaek/monolog/1",
+        "monolog2": "github.com/Seldaek/monolog/2"
+    }
+}
