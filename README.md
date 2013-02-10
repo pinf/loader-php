@@ -1,3 +1,5 @@
+**EARLY STALLED EXPLORATION**
+
 PHP Module, Package & Program Loader
 ====================================
 
